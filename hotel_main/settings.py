@@ -31,6 +31,13 @@ DEBUG = os.getenv("DEBUG", "False") == "True"
 
 ALLOWED_HOSTS = ['*']
 
+# Development ke liye localhost allow karo
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",
+]
+
+# CORS_ALLOW_ALL_ORIGINS = True
+
 
 # Application definition
 
@@ -46,6 +53,7 @@ INSTALLED_APPS = [
     'booking',
     'rest_framework',
     'rest_framework_simplejwt',
+    'corsheaders',
 ]
 
 from datetime import timedelta
@@ -61,6 +69,8 @@ REST_FRAMEWORK = {
 }
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',  # Must be at top
+
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
