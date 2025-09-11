@@ -98,7 +98,9 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
 
 @csrf_exempt
-def update(request):
+@api_view
+@permission_classes([IsAuthenticated])
+def update(request):    
     if request.method == "PUT":
         # ✅ Authenticate user using JWT
         jwt_authenticator = JWTAuthentication()

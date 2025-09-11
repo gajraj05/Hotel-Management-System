@@ -25,7 +25,13 @@ SECRET_KEY = 'django-insecure-c^^n%t_+_!!7bl_@7lmpb%1yg(6rr07)y%^ow5tc5x)0)j3#n)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = ["hotel-management-system-2-t22u.onrender.com", "localhost", "127.0.0.1"]
+
+ALLOWED_HOSTS = [
+    "localhost",
+    "127.0.0.1",
+    "https://hotel-management-system-fwec.onrender.com",  # <-- Add Render domain here
+]
 
 
 # Application definition
