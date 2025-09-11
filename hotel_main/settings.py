@@ -29,11 +29,7 @@ DEBUG = os.getenv("DEBUG", "False") == "True"
 
 # ALLOWED_HOSTS = ["hotel-management-system-2-t22u.onrender.com", "localhost", "127.0.0.1"]
 
-ALLOWED_HOSTS = [
-    "localhost",
-    "127.0.0.1",
-    "https://hotel-management-system-fwec.onrender.com",  # <-- Add Render domain here
-]
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
