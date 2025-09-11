@@ -102,7 +102,7 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
 
 @csrf_exempt
-@api_view
+@api_view(['PUT'])
 @permission_classes([IsAuthenticated])
 def update(request):    
     if request.method == "PUT":

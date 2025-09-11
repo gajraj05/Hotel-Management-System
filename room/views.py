@@ -24,9 +24,17 @@ def create_room(request):
     try:
         room = Room.objects.create(
             number=data["number"],
-            room_type=data.get("room_type", "single"),
-            price=data.get("price", 1000.00),
-            is_available=data.get("is_available", True),
+            room_type=data.get("room_type"),
+            rent=data.get("rent", 1000.00),
+            bed_type=data.get("bed_type"),
+            floor_no=data.get("floor_no", 2),
+            capacity=data.get("capacity"),
+            room_size=data.get("room_size"),
+            room_view=data.get("room_view"),
+            smoke=data.get("smoke"),
+            facility=data.get("facility"),
+            room_img=data.get("room_img"),
+            is_available=data.get("is_available"),
             created_by=user,
         )
 
@@ -37,7 +45,7 @@ def create_room(request):
                     "id": room.id,
                     "number": room.number,
                     "room_type": room.room_type,
-                    "price": str(room.price),
+                    "rent": str(room.rent),
                     "is_available": room.is_available,
                 },
             },
@@ -59,8 +67,16 @@ def update_room(request, room_id):
         # ✅ Update fields
         room.number = data.get("number", room.number)
         room.room_type = data.get("type", room.room_type)
-        room.price = data.get("price", room.price)
+        room.rent = data.get("rent", room.rent)
         room.is_available = data.get("is_available", room.is_available)
+        room.bed_type=data.get("bed_type", room.bed_type)
+        room.floor_no=data.get("floor_no", room.floor_no)
+        room.capacity=data.get("capacity", room.capacity)
+        room.room_size=data.get("room_size", room.room_size)
+        room.room_view=data.get("room_view", room.room_view)
+        room.smoke=data.get("smoke", room.smoke)
+        room.facility=data.get("facility", room.facility)
+        room.room_img=data.get("room_img", room.room_img)
 
         room.save()
 
@@ -70,7 +86,7 @@ def update_room(request, room_id):
                 "id": room.id,
                 "number": room.number,
                 "type": room.room_type,
-                "price": room.price,
+                "rent": room.rent,
                 "is_available": room.is_available
             }
         })
@@ -110,7 +126,7 @@ def search_rooms(request):
             "id": room.id,
             "number": room.number,
             "room_type": room.room_type,
-            "price": str(room.price),
+            "rent": str(room.rent),
             "is_available": room.is_available,
         }
         for room in rooms
