@@ -10,6 +10,10 @@ from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework.exceptions import AuthenticationFailed
 from .models import User_Profile
 
+
+def home(request):
+    return JsonResponse({"message": "Hotel Management API is running 🚀"})
+
 @csrf_exempt
 def register(request):
     if request.method == "POST":
